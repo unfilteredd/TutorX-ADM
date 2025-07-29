@@ -124,6 +124,7 @@ const Header = () => {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             {user ? (
               <>
                 <span className="text-sm">Welcome, {user.name}</span>

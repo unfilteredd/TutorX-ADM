@@ -78,6 +78,67 @@ interface RelatedVideo {
 
 // Define video data with different tutors
 const videoData: Record<string, Video> = {
+  // Academic Tuition Videos
+  'nursery-3': {
+    id: 'nursery-3',
+    title: 'Early Mathematics: Numbers and Counting',
+    description: 'A fun and engaging introduction to numbers and counting for young learners. This tutorial uses colorful visuals and interactive examples to make learning enjoyable.',
+    thumbnail: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=450&fit=crop',
+    videoUrl: 'dQw4w9WgXcQ', // YouTube video ID
+    tutor: {
+      id: '7',
+      name: 'Emily Parker',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+      bio: 'Early childhood educator with expertise in making learning fun and accessible for young students. Specializes in creating engaging educational content for nursery to 3rd class students.',
+      experience: '12+ years',
+      rating: 4.9
+    },
+    duration: '15:30',
+    views: 18500,
+    likes: 1250,
+    shares: 320,
+    category: 'Early Education'
+  },
+  'class4-8': {
+    id: 'class4-8',
+    title: 'Middle School Mathematics: Fractions and Decimals',
+    description: 'Master the concepts of fractions and decimals with clear explanations and practical examples. This tutorial is designed for students in classes 4-8.',
+    thumbnail: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&h=450&fit=crop',
+    videoUrl: 'dQw4w9WgXcQ', // YouTube video ID
+    tutor: {
+      id: '8',
+      name: 'David Wilson',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+      bio: 'Experienced middle school teacher specializing in mathematics and science education. Passionate about making complex concepts accessible to students through clear explanations and practical examples.',
+      experience: '15+ years',
+      rating: 4.8
+    },
+    duration: '22:45',
+    views: 22400,
+    likes: 1850,
+    shares: 420,
+    category: 'Middle School'
+  },
+  'class9-above': {
+    id: 'class9-above',
+    title: 'Advanced Mathematics: Calculus Fundamentals',
+    description: 'A comprehensive introduction to calculus for high school and college students. This tutorial covers limits, derivatives, and integrals with clear explanations and examples.',
+    thumbnail: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=450&fit=crop',
+    videoUrl: 'dQw4w9WgXcQ', // YouTube video ID
+    tutor: {
+      id: '9',
+      name: 'Sophia Chen',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face',
+      bio: 'Mathematics professor with expertise in advanced mathematics and test preparation. Specializes in making complex mathematical concepts accessible to high school and college students.',
+      experience: '18+ years',
+      rating: 4.9
+    },
+    duration: '35:15',
+    views: 31200,
+    likes: 2450,
+    shares: 580,
+    category: 'High School & College'
+  },
   '0': { // New video with ID 0
     id: '0',
     title: 'Mastering Data Structures & Algorithms',
@@ -263,6 +324,61 @@ const videoData: Record<string, Video> = {
 
 // Related videos for each tutorial
 const relatedVideosByTutorial: Record<string, RelatedVideo[]> = {
+  // For academic tuition tutorials
+  'nursery-3': [
+    {
+      id: 'class4-8',
+      title: 'Middle School Mathematics: Fractions and Decimals',
+      thumbnail: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=300&h=200&fit=crop',
+      tutor: { id: '8', name: 'David Wilson' },
+      duration: '22:45',
+      views: 22400
+    },
+    {
+      id: 'class9-above',
+      title: 'Advanced Mathematics: Calculus Fundamentals',
+      thumbnail: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&h=200&fit=crop',
+      tutor: { id: '9', name: 'Sophia Chen' },
+      duration: '35:15',
+      views: 31200
+    }
+  ],
+  'class4-8': [
+    {
+      id: 'nursery-3',
+      title: 'Early Mathematics: Numbers and Counting',
+      thumbnail: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=300&h=200&fit=crop',
+      tutor: { id: '7', name: 'Emily Parker' },
+      duration: '15:30',
+      views: 18500
+    },
+    {
+      id: 'class9-above',
+      title: 'Advanced Mathematics: Calculus Fundamentals',
+      thumbnail: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&h=200&fit=crop',
+      tutor: { id: '9', name: 'Sophia Chen' },
+      duration: '35:15',
+      views: 31200
+    }
+  ],
+  'class9-above': [
+    {
+      id: 'nursery-3',
+      title: 'Early Mathematics: Numbers and Counting',
+      thumbnail: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=300&h=200&fit=crop',
+      tutor: { id: '7', name: 'Emily Parker' },
+      duration: '15:30',
+      views: 18500
+    },
+    {
+      id: 'class4-8',
+      title: 'Middle School Mathematics: Fractions and Decimals',
+      thumbnail: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=300&h=200&fit=crop',
+      tutor: { id: '8', name: 'David Wilson' },
+      duration: '22:45',
+      views: 22400
+    }
+  ],
   '0': [ // Related videos for our new tutorial
     {
       id: '5',
@@ -337,6 +453,30 @@ const relatedVideosByTutorial: Record<string, RelatedVideo[]> = {
 
 // Default related videos
 const defaultRelatedVideos: RelatedVideo[] = [
+  {
+    id: 'nursery-3',
+    title: 'Early Mathematics: Numbers and Counting',
+    thumbnail: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=300&h=200&fit=crop',
+    tutor: { id: '7', name: 'Emily Parker' },
+    duration: '15:30',
+    views: 18500
+  },
+  {
+    id: 'class4-8',
+    title: 'Middle School Mathematics: Fractions and Decimals',
+    thumbnail: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=300&h=200&fit=crop',
+    tutor: { id: '8', name: 'David Wilson' },
+    duration: '22:45',
+    views: 22400
+  },
+  {
+    id: 'class9-above',
+    title: 'Advanced Mathematics: Calculus Fundamentals',
+    thumbnail: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&h=200&fit=crop',
+    tutor: { id: '9', name: 'Sophia Chen' },
+    duration: '35:15',
+    views: 31200
+  },
   {
     id: '5',
     title: 'Introduction to Python Programming',
@@ -467,16 +607,16 @@ const VideoDetailPage = () => {
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-4">{video.title}</h1>
           <div className="flex items-center gap-6 mb-4">
-            <div className="flex items-center gap-2">
-              <Heart className="w-5 h-5 text-muted-foreground" />
-              <span className="text-muted-foreground">{video.likes}</span>
+              <div className="flex items-center gap-2">
+                <Heart className="w-5 h-5 text-muted-foreground" />
+                <span className="text-muted-foreground">{video.likes}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Share2 className="w-5 h-5 text-muted-foreground" />
+                <span className="text-muted-foreground">{video.shares}</span>
+              </div>
+              <span className="text-sm text-muted-foreground">{video.category}</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Share2 className="w-5 h-5 text-muted-foreground" />
-              <span className="text-muted-foreground">{video.shares}</span>
-            </div>
-            <Badge variant="secondary">{video.category}</Badge>
-          </div>
           <p className="text-muted-foreground">{video.description}</p>
         </div>
 

@@ -4,13 +4,13 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "@/contexts/ThemeContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import VideoDetailPage from "./pages/tutorial/[id]";
 import InstructorProfilePage from "./pages/instructor/[id]";
 import SkillsPage from "./pages/skills";
 import SkillDetailPage from "./pages/skills/[slug]";
+import SubSkillDetailPage from "./pages/skills/subskill/[id]";
 import LoginPage from "./pages/auth/login";
 import SignupPage from "./pages/auth/signup";
 import TutorsPage from "./pages/tutors";
@@ -23,10 +23,9 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
         <BrowserRouter>
           <ScrollToTop />
           <Routes>
@@ -35,6 +34,7 @@ const App = () => (
             <Route path="/instructor/:id" element={<InstructorProfilePage />} />
             <Route path="/skills" element={<SkillsPage />} />
             <Route path="/skills/:slug" element={<SkillDetailPage />} />
+            <Route path="/skills/subskill/:id" element={<SubSkillDetailPage />} />
             <Route path="/auth/login" element={<LoginPage />} />
             <Route path="/auth/signup" element={<SignupPage />} />
             <Route path="/tutors" element={<TutorsPage />} />
@@ -46,7 +46,6 @@ const App = () => (
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
-    </ThemeProvider>
   </QueryClientProvider>
 );
 

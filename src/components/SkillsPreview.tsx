@@ -4,24 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const skills = [
   {
-    title: "Culinary Arts",
-    description: "Master the art of cooking with professional chefs. From basic techniques to gourmet cuisine.",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&h=300&fit=crop",
-    tutorCount: 24,
-    category: "Lifestyle",
-    gradient: "from-orange-500/20 to-red-500/20",
-    slug: "culinary-arts"
-  },
-  {
-    title: "Music & Instruments",
-    description: "Learn guitar, piano, violin and more from experienced musicians and music teachers.",
-    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=500&h=300&fit=crop",
-    tutorCount: 18,
-    category: "Arts",
-    gradient: "from-purple-500/20 to-pink-500/20",
-    slug: "music-instruments"
-  },
-  {
     title: "Academic Tuition",
     description: "Excel in mathematics, science, languages and more with expert academic tutors.",
     image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=500&h=300&fit=crop",
@@ -31,13 +13,31 @@ const skills = [
     slug: "academic-tuition"
   },
   {
-    title: "Digital Skills",
-    description: "Master programming, design, digital marketing and modern tech skills for career growth.",
-    image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=500&h=300&fit=crop",
-    tutorCount: 32,
-    category: "Technology",
-    gradient: "from-green-500/20 to-teal-500/20",
-    slug: "digital-skills"
+    title: "Music & Instruments",
+    description: "Learn guitar, piano, violin and more from experienced musicians and music teachers.",
+    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=500&h=300&fit=crop",
+    tutorCount: 18,
+    category: "Arts",
+    gradient: "from-purple-500/20 to-pink-500/20",
+    slug: "music-production"
+  },
+  {
+    title: "Career Counselling",
+    description: "Get expert guidance on career paths, job opportunities, and professional development strategies.",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=500&h=300&fit=crop",
+    tutorCount: 22,
+    category: "Professional",
+    gradient: "from-amber-500/20 to-yellow-500/20",
+    slug: "career-counselling"
+  },
+  {
+    title: "The Calm Chat",
+    description: "A safe space to discuss anything on your mind, get advice, and find solutions with empathetic listeners.",
+    image: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=500&h=300&fit=crop",
+    tutorCount: 15,
+    category: "Wellness",
+    gradient: "from-teal-500/20 to-emerald-500/20",
+    slug: "calm-chat"
   }
 ];
 

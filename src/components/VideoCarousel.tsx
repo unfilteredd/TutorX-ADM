@@ -7,24 +7,15 @@ import { useNavigate } from "react-router-dom";
 // Mock trending videos data
 const trendingVideos = [
   {
-    id: 0, // New video with ID 0
-    title: "Mastering Data Structures & Algorithms",
-    tutor: "Vagish Bhardwaj",
-    thumbnail: "https://i.ytimg.com/vi/_q83F8Dn9os/maxresdefault.jpg", // YouTube thumbnail
-    duration: "10:15",
-    views: "50K views",
-    youtubeId: "_q83F8Dn9os" // YouTube video ID
+    id: "academic-1",
+    title: "Early Mathematics: Numbers and Counting",
+    tutor: "Emily Parker",
+    thumbnail: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=225&fit=crop",
+    duration: "15:30",
+    views: "18.5K views"
   },
   {
-    id: 1,
-    title: "Master Italian Cooking in 30 Days",
-    tutor: "Chef Maria Rodriguez",
-    thumbnail: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=225&fit=crop",
-    duration: "12:45",
-    views: "25K views"
-  },
-  {
-    id: 2,
+    id: "music-1",
     title: "Learn Guitar: From Beginner to Pro",
     tutor: "Jake Thompson",
     thumbnail: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=225&fit=crop",
@@ -32,36 +23,20 @@ const trendingVideos = [
     views: "45K views"
   },
   {
-    id: 3,
-    title: "Advanced Mathematics Made Simple",
-    tutor: "Dr. Sarah Chen",
-    thumbnail: "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&h=225&fit=crop",
-    duration: "22:15", 
-    views: "18K views"
-  },
-  {
-    id: 4,
-    title: "Digital Art & Design Fundamentals",
-    tutor: "Alex Rivera",
-    thumbnail: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=225&fit=crop",
-    duration: "15:30",
+    id: "career-1",
+    title: "Career Planning: Finding Your Perfect Path",
+    tutor: "Dr. Michael Stevens",
+    thumbnail: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=225&fit=crop",
+    duration: "24:15",
     views: "32K views"
   },
   {
-    id: 5,
-    title: "Professional Photography Skills",
-    tutor: "Emma Wilson",
-    thumbnail: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=225&fit=crop",
-    duration: "20:45",
-    views: "28K views"
-  },
-  {
-    id: 6,
-    title: "Learn Spanish Conversationally",
-    tutor: "Carlos Mendez",
-    thumbnail: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=225&fit=crop",
-    duration: "16:20",
-    views: "22K views"
+    id: "calm-chat-1",
+    title: "Mindful Conversations: The Art of Listening",
+    tutor: "Sarah Johnson",
+    thumbnail: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=400&h=225&fit=crop",
+    duration: "19:45",
+    views: "27K views"
   }
 ];
 
@@ -77,8 +52,8 @@ const VideoCarousel = () => {
     setCurrentIndex((prev) => (prev - 1 + Math.max(1, trendingVideos.length - 2)) % Math.max(1, trendingVideos.length - 2));
   };
 
-  const handleVideoClick = (videoId: number) => {
-    // Convert to string ID for the tutorial page
+  const handleVideoClick = (videoId: number | string) => {
+    // Navigate to the tutorial page
     navigate(`/tutorial/${videoId}`);
     window.scrollTo(0, 0);
   };

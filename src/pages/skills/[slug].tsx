@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Play, Clock, Eye } from 'lucide-react';
+import { ArrowLeft, Play, Clock, Eye, Star, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -15,6 +15,7 @@ interface Tutorial {
   tutor: {
     name: string;
     avatar: string;
+    rating: number;
   };
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   category: string;
@@ -26,6 +27,7 @@ interface SkillDetail {
   totalTutorials: number;
   totalTutors: number;
   category: string;
+  
 }
 
 const SkillDetailPage = () => {
@@ -38,57 +40,231 @@ const SkillDetailPage = () => {
   useEffect(() => {
     // Mock data based on slug - replace with actual API call
     const getSkillData = (slug: string) => {
+      // Check if the skill is one of the coming soon skills
+      const comingSoonSlugs = ['digital-photography', 'web-development', 'culinary-arts'];
+      
+      if (comingSoonSlugs.includes(slug)) {
+        // For coming soon skills, set a special skill detail
+        const skillTitles: Record<string, string> = {
+          'digital-photography': 'Digital Photography',
+          'web-development': 'Web Development',
+          'culinary-arts': 'Culinary Arts'
+        };
+        
+        return {
+          detail: {
+            title: skillTitles[slug] || 'Coming Soon',
+            description: 'This skill is coming soon! We are currently recruiting expert tutors in this field.',
+            totalTutorials: 0,
+            totalTutors: 0,
+            category: 'Coming Soon'
+          },
+          tutorials: []
+        };
+      }
+      
       const skillMap: Record<string, { detail: SkillDetail; tutorials: Tutorial[] }> = {
+        'academic-tuition': {
+          detail: {
+            title: 'Academic Tuition',
+            description: 'Excel in mathematics, science, languages and more with expert academic tutors. Choose the appropriate level for your educational needs.',
+            totalTutorials: 145,
+            totalTutors: 78,
+            category: 'Education'
+          },
+          tutorials: [
+            {
+              id: 'nursery-3',
+              title: 'Nursery to 3rd Class',
+              description: 'Foundation learning programs for young students with interactive lessons in mathematics, language, and general knowledge',
+              thumbnail: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=250&fit=crop',
+              duration: 'Multiple Courses',
+              views: 18500,
+              tutor: {
+                name: 'Emily Parker',
+                avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face',
+                rating: 4.9
+              },
+              difficulty: 'Beginner',
+              category: 'Early Education',
+              
+            },
+            {
+              id: 'class4-8',
+              title: '4th to 8th Class',
+              description: 'Comprehensive educational programs covering mathematics, science, social studies, and language arts for middle school students',
+              thumbnail: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&h=250&fit=crop',
+              duration: 'Multiple Courses',
+              views: 22400,
+              tutor: {
+                name: 'David Wilson',
+                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face',
+                rating: 4.7
+              },
+              difficulty: 'Intermediate',
+              category: 'Middle School',
+              
+            },
+            {
+              id: 'class9-above',
+              title: '9th Class and Above',
+              description: 'Advanced academic programs for high school students preparing for board exams and college entrance tests with specialized coaching',
+              thumbnail: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=250&fit=crop',
+              duration: 'Multiple Courses',
+              views: 31200,
+              tutor: {
+                name: 'Sophia Chen',
+                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face',
+                rating: 4.8
+              },
+              difficulty: 'Advanced',
+              category: 'High School & College',
+              
+            }
+          ]
+        },
         'music-production': {
           detail: {
-            title: 'Music Production',
-            description: 'Learn to create, mix, and master professional-quality music using industry-standard software and techniques. From beat making to final mastering, discover the complete music production workflow.',
+            title: 'Music & Instruments',
+            description: 'Master various musical instruments and vocal techniques with expert guidance from professional musicians and instructors.',
             totalTutorials: 127,
             totalTutors: 45,
             category: 'Music'
           },
           tutorials: [
             {
-              id: '1',
-              title: 'Getting Started with Logic Pro X',
-              description: 'A comprehensive introduction to Logic Pro X for beginners',
-              thumbnail: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop',
+              id: 'instrument',
+              title: 'Instrument',
+              description: 'Learn to play various musical instruments with comprehensive lessons covering technique, theory, and performance for all skill levels',
+              thumbnail: 'https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=400&h=250&fit=crop',
+              duration: 'Multiple Courses',
+              views: 46100,
+              tutor: {
+                name: 'James Wilson',
+                avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face',
+                rating: 4.9
+              },
+              difficulty: 'Beginner',
+              category: 'Instruments',
+              
+            },
+            {
+              id: 'singing',
+              title: 'Singing',
+              description: 'Develop your vocal skills with professional voice training covering technique, range, and performance skills',
+              thumbnail: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=400&h=250&fit=crop',
+              duration: 'Multiple Courses',
+              views: 18950,
+              tutor: {
+                name: 'Maria Garcia',
+                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face',
+                rating: 4.8
+              },
+              difficulty: 'Intermediate',
+              category: 'Vocal Training',
+              
+            }
+          ]
+        },
+        'career-counselling': {
+          detail: {
+            title: 'Career Counselling',
+            description: 'Get expert guidance on career paths, job opportunities, and professional development strategies for your future success.',
+            totalTutorials: 75,
+            totalTutors: 22,
+            category: 'Professional'
+          },
+          tutorials: [
+            {
+              id: 'career-planning',
+              title: 'Career Planning & Development',
+              description: 'Learn how to identify your strengths, set career goals, and create a strategic plan for professional growth and advancement',
+              thumbnail: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=250&fit=crop',
+              duration: '24:15',
+              views: 32000,
+              tutor: {
+                name: 'Dr. Michael Stevens',
+                avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=50&h=50&fit=crop&crop=face',
+                rating: 4.9
+              },
+              difficulty: 'Beginner',
+              category: 'Career Development',
+              
+            },
+            {
+              id: 'interview-skills',
+              title: 'Interview Mastery',
+              description: 'Master the art of interviewing with techniques for answering tough questions, body language tips, and strategies to stand out from other candidates',
+              thumbnail: 'https://images.unsplash.com/photo-1560264280-88b68371db39?w=400&h=250&fit=crop',
               duration: '18:45',
-              views: 12400,
+              views: 28500,
+              tutor: {
+                name: 'Jennifer Adams',
+                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face',
+                rating: 4.8
+              },
+              difficulty: 'Intermediate',
+              category: 'Job Search',
+              
+            },
+            {
+              id: 'resume-building',
+              title: 'Resume & Portfolio Building',
+              description: 'Create standout resumes and portfolios that highlight your skills and experience effectively to attract potential employers',
+              thumbnail: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&h=250&fit=crop',
+              duration: '21:30',
+              views: 25700,
+              tutor: {
+                name: 'Robert Chen',
+                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face',
+                rating: 4.7
+              },
+              difficulty: 'Beginner',
+              category: 'Job Search',
+              
+            }
+          ]
+        },
+        'calm-chat': {
+          detail: {
+            title: 'The Calm Chat',
+            description: 'A safe space to discuss anything on your mind, get advice, and find solutions with empathetic listeners who understand your concerns.',
+            totalTutorials: 42,
+            totalTutors: 15,
+            category: 'Wellness'
+          },
+          tutorials: [
+            {
+              id: 'mindful-conversations',
+              title: 'Mindful Conversations',
+              description: 'Learn the art of mindful listening and speaking to create meaningful connections and have more productive conversations',
+              thumbnail: 'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=400&h=250&fit=crop',
+              duration: '19:45',
+              views: 27000,
               tutor: {
                 name: 'Sarah Johnson',
-                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face'
+                avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face',
+                rating: 4.9
               },
               difficulty: 'Beginner',
-              category: 'Music Production'
+              category: 'Communication',
+              
             },
             {
-              id: '2',
-              title: 'Advanced Mixing Techniques',
-              description: 'Professional mixing strategies used in modern music production',
-              thumbnail: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=250&fit=crop',
-              duration: '25:30',
-              views: 8950,
+              id: 'stress-management',
+              title: 'Stress Management Techniques',
+              description: 'Discover effective strategies to manage stress, anxiety, and overwhelm in your daily life and challenging situations',
+              thumbnail: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=250&fit=crop',
+              duration: '22:15',
+              views: 31500,
               tutor: {
-                name: 'Mike Chen',
-                avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face'
+                name: 'Dr. James Miller',
+                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face',
+                rating: 4.8
               },
-              difficulty: 'Advanced',
-              category: 'Music Production'
-            },
-            {
-              id: '3',
-              title: 'Beat Making Fundamentals',
-              description: 'Learn the basics of creating compelling drum patterns and beats',
-              thumbnail: 'https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=400&h=250&fit=crop',
-              duration: '15:20',
-              views: 15600,
-              tutor: {
-                name: 'Emma Davis',
-                avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face'
-              },
-              difficulty: 'Beginner',
-              category: 'Music Production'
+              difficulty: 'Intermediate',
+              category: 'Mental Wellness',
+              
             }
           ]
         },
@@ -110,7 +286,8 @@ const SkillDetailPage = () => {
               views: 28500,
               tutor: {
                 name: 'Alex Rodriguez',
-                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face'
+                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face',
+                rating: 4.9
               },
               difficulty: 'Intermediate',
               category: 'Web Development'
@@ -124,7 +301,8 @@ const SkillDetailPage = () => {
               views: 19200,
               tutor: {
                 name: 'Lisa Wang',
-                avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=50&h=50&fit=crop&crop=face'
+                avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=50&h=50&fit=crop&crop=face',
+                rating: 4.7
               },
               difficulty: 'Intermediate',
               category: 'Web Development'
@@ -221,76 +399,85 @@ const SkillDetailPage = () => {
           </div>
         </div>
 
-        {/* Tutorials Grid */}
+        {/* Tutorials Grid or Coming Soon Message */}
         <div>
-          <h2 className="text-2xl font-bold mb-6">Tutorials</h2>
-          {tutorials.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {tutorials.map((tutorial) => (
-                <Card
-                  key={tutorial.id}
-                  className="group cursor-pointer hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-                  onClick={() => navigate(`/tutorial/${tutorial.id}`)}
+          {skillDetail.category === 'Coming Soon' ? (
+            <div className="flex flex-col items-center justify-center py-12 text-center">
+              <div className="bg-muted p-8 rounded-lg max-w-2xl mx-auto mb-8">
+                <h2 className="text-3xl font-bold mb-6">Coming Soon!</h2>
+                <p className="text-xl text-muted-foreground mb-8">
+                  We're currently developing high-quality content for this skill and recruiting expert tutors.
+                  Would you like to join our team of tutors?
+                </p>
+                <Button 
+                  size="lg" 
+                  className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6 text-lg"
+                  onClick={() => navigate('/become-tutor')}
                 >
-                  <CardContent className="p-0">
-                    <div className="relative overflow-hidden">
-                      <img
-                        src={tutorial.thumbnail}
-                        alt={tutorial.title}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                        <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-75 group-hover:scale-100">
-                          <Play className="w-5 h-5 text-primary ml-0.5" fill="currentColor" />
-                        </div>
-                      </div>
-                      <div className="absolute bottom-2 right-2 bg-black/80 text-white px-2 py-1 rounded text-sm flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
-                        {tutorial.duration}
-                      </div>
-                      <div className="absolute top-2 left-2">
-                        <Badge 
-                          className={`text-xs ${getDifficultyColor(tutorial.difficulty)}`}
-                        >
-                          {tutorial.difficulty}
-                        </Badge>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4">
-                      <h3 className="font-bold text-lg mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-                        {tutorial.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm mb-3 line-clamp-2">
-                        {tutorial.description}
-                      </p>
-                      
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <img
-                            src={tutorial.tutor.avatar}
-                            alt={tutorial.tutor.name}
-                            className="w-6 h-6 rounded-full"
-                          />
-                          <span className="text-sm font-medium">{tutorial.tutor.name}</span>
-                        </div>
-                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <Eye className="w-3 h-3" />
-                          {tutorial.views.toLocaleString()}
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                  Become a Tutor
+                </Button>
+              </div>
             </div>
           ) : (
-            <Card className="p-8 text-center">
-              <h3 className="text-xl font-semibold mb-2">No Tutorials Available</h3>
-              <p className="text-muted-foreground">
-                Tutorials for this skill are coming soon. Check back later!
-              </p>
-            </Card>
+            <>
+              <h2 className="text-2xl font-bold mb-6">Tutorials</h2>
+              {tutorials.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {tutorials.map((tutorial) => (
+                    <Card
+                      key={tutorial.id}
+                      className="group cursor-pointer hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                      onClick={() => navigate(`/skills/subskill/${tutorial.id}`)}
+                    >
+                      <CardContent className="p-0">
+                        <div className="relative overflow-hidden">
+                          <img
+                            src={tutorial.thumbnail}
+                            alt={tutorial.title}
+                            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                            <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-75 group-hover:scale-100">
+                              <ArrowLeft className="w-5 h-5 text-primary rotate-180" />
+                            </div>
+                          </div>
+                          <div className="absolute bottom-2 right-2 bg-primary/80 text-white px-2 py-1 rounded text-sm">
+                            Explore
+                          </div>
+                          <div className="absolute top-2 left-2">
+                            <span className="text-sm text-muted-foreground">
+                              {tutorial.duration}
+                            </span>
+                          </div>
+                        </div>
+                        
+                        <div className="p-4">
+                          <h3 className="font-semibold text-lg mb-1 line-clamp-1">{tutorial.title}</h3>
+                          <p className="text-muted-foreground text-sm line-clamp-2 mb-3">{tutorial.description}</p>
+                          <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-1">
+                              <Users className="w-3 h-3 text-muted-foreground" />
+                              <span className="text-xs text-muted-foreground">{tutorial.views}+ students</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Star className="w-3 h-3 text-amber-500" fill="currentColor" />
+                              <span className="text-xs text-muted-foreground">4.8 rating</span>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              ) : (
+                <Card className="p-8 text-center">
+                  <h3 className="text-xl font-semibold mb-2">No Tutorials Available</h3>
+                  <p className="text-muted-foreground">
+                    Tutorials for this skill are coming soon. Check back later!
+                  </p>
+                </Card>
+              )}
+            </>
           )}
         </div>
       </div>

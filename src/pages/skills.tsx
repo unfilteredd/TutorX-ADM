@@ -25,9 +25,19 @@ const SkillsPage = () => {
 
   const skills: Skill[] = [
     {
+      id: '0',
+      title: 'Academic Tuition',
+      description: 'Enhance your academic performance with comprehensive tuition programs covering all subjects and educational levels.',
+      image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=250&fit=crop',
+      tutorCount: 52,
+      category: 'Education',
+      slug: 'academic-tuition',
+      tutorialCount: 145
+    },
+    {
       id: '1',
-      title: 'Music Production',
-      description: 'Learn to create, mix, and master professional-quality music using industry-standard software and techniques.',
+      title: 'Music & Instruments',
+      description: 'Master various musical instruments and vocal techniques with expert guidance from professional musicians and instructors.',
       image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop',
       tutorCount: 45,
       category: 'Music',
@@ -36,6 +46,26 @@ const SkillsPage = () => {
     },
     {
       id: '2',
+      title: 'Career Counselling',
+      description: 'Get expert guidance on career paths, job opportunities, and professional development strategies for your future success.',
+      image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=300&fit=crop',
+      tutorCount: 22,
+      category: 'Professional',
+      slug: 'career-counselling',
+      tutorialCount: 75
+    },
+    {
+      id: '3',
+      title: 'The Calm Chat',
+      description: 'A safe space to discuss anything on your mind, get advice, and find solutions with empathetic listeners who understand your concerns.',
+      image: 'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=400&h=300&fit=crop',
+      tutorCount: 15,
+      category: 'Wellness',
+      slug: 'calm-chat',
+      tutorialCount: 68
+    },
+    {
+      id: '4',
       title: 'Digital Photography',
       description: 'Master the art of digital photography from composition to post-processing with expert guidance.',
       image: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=300&fit=crop',
@@ -45,7 +75,7 @@ const SkillsPage = () => {
       tutorialCount: 89
     },
     {
-      id: '3',
+      id: '5',
       title: 'Web Development',
       description: 'Build modern, responsive websites and web applications using the latest technologies and frameworks.',
       image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=300&fit=crop',
@@ -55,47 +85,17 @@ const SkillsPage = () => {
       tutorialCount: 156
     },
     {
-      id: '4',
-      title: 'Graphic Design',
-      description: 'Create stunning visual designs for print and digital media using professional design principles.',
-      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop',
-      tutorCount: 28,
-      category: 'Design',
-      slug: 'graphic-design',
-      tutorialCount: 94
-    },
-    {
-      id: '5',
-      title: 'Data Science',
-      description: 'Analyze complex data sets and extract meaningful insights using statistical methods and machine learning.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop',
-      tutorCount: 41,
-      category: 'Technology',
-      slug: 'data-science',
-      tutorialCount: 78
-    },
-    {
       id: '6',
-      title: 'Creative Writing',
-      description: 'Develop your storytelling skills and learn to craft compelling narratives across various genres.',
-      image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop',
-      tutorCount: 23,
-      category: 'Writing',
-      slug: 'creative-writing',
-      tutorialCount: 65
-    },
-    {
-      id: '7',
-      title: 'Digital Marketing',
-      description: 'Master online marketing strategies including SEO, social media, and content marketing.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop',
-      tutorCount: 39,
-      category: 'Business',
-      slug: 'digital-marketing',
+      title: 'Culinary Arts',
+      description: 'Learn cooking techniques, international cuisines, and food presentation from professional chefs.',
+      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop',
+      tutorCount: 38,
+      category: 'Cooking',
+      slug: 'culinary-arts',
       tutorialCount: 112
     },
     {
-      id: '8',
+      id: '7',
       title: 'Language Learning',
       description: 'Learn new languages through immersive techniques and personalized instruction methods.',
       image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop',
@@ -105,17 +105,7 @@ const SkillsPage = () => {
       tutorialCount: 203
     },
     {
-      id: '9',
-      title: 'Cooking & Culinary Arts',
-      description: 'Discover culinary techniques from basic cooking skills to advanced gourmet preparation.',
-      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop',
-      tutorCount: 34,
-      category: 'Lifestyle',
-      slug: 'cooking-culinary-arts',
-      tutorialCount: 87
-    },
-    {
-      id: '10',
+      id: '8',
       title: 'Fitness & Wellness',
       description: 'Achieve your health goals with personalized fitness programs and wellness coaching.',
       image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop',
