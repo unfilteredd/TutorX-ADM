@@ -1,0 +1,164 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enhanced TutorX Design System with Rose Gold Theme */
+
+@layer base {
+  :root {
+    /* Light Theme - Cream with Rose Gold */
+    --background: 40 30% 96%; /* F7F3EC - Warm Cream */
+    --foreground: 240 10% 3.9%;
+
+    --card: 40 25% 94%; /* Slightly darker than background */
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 40 30% 96%;
+    --popover-foreground: 240 10% 3.9%;
+
+    /* Primary: Rose Gold */
+    --primary: 350 60% 65%; /* Rose Gold */
+    --primary-foreground: 40 30% 96%;
+    --primary-hover: 350 60% 60%;
+
+    /* Secondary: Soft Copper */
+    --secondary: 20 70% 70%; /* Copper complement to Rose Gold */
+    --secondary-foreground: 240 10% 3.9%;
+
+    --muted: 40 15% 85%; /* D2CDB9 */
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 350 30% 75%; /* Lighter Rose Gold */
+    --accent-foreground: 240 10% 3.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 40 30% 96%;
+
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 350 60% 65%;
+
+    /* Light Theme Custom Design Tokens - Enhanced for Rose Gold */
+    --hero-gradient: linear-gradient(135deg, hsl(350 60% 65%), hsl(20 70% 70%));
+    --card-gradient: linear-gradient(145deg, hsl(40 30% 96%), hsl(40 15% 85%));
+    --creme-gradient: linear-gradient(135deg, hsl(40 30% 96%), hsl(40 15% 85%), hsl(350 30% 75%));
+    --glass-bg: hsla(350 60% 65% / 0.05);
+    --glass-border: hsla(350 60% 65% / 0.1);
+    --shadow-elegant: 0 10px 40px hsla(350 60% 65% / 0.15);
+    --shadow-card: 0 4px 20px hsla(350 60% 65% / 0.08);
+    --shadow-glow: 0 0 40px hsla(350 60% 65% / 0.2);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --gradient-animated: linear-gradient(45deg, hsl(350 60% 65%), hsl(20 70% 70%), hsl(350 60% 65%));
+    --mesh-gradient: linear-gradient(135deg, hsl(350 60% 65% / 0.1), hsl(20 70% 70% / 0.1), hsl(350 60% 65% / 0.1));
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 40 30% 96%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 350 60% 65%;
+    --sidebar-primary-foreground: 40 30% 96%;
+    --sidebar-accent: 350 30% 90%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 40 15% 88%;
+    --sidebar-ring: 350 60% 65%;
+  }
+
+  .dark {
+    /* Dark Theme - Black with Rose Gold */
+    --background: 0 0% 5%; /* Almost Black */
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 7%; /* Slightly lighter than background */
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary: Bright Rose Gold for Dark Mode */
+    --primary: 350 70% 65%; /* Brighter Rose Gold */
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 350 70% 60%;
+
+    /* Secondary: Glowing Copper for Dark Mode */
+    --secondary: 20 80% 70%;
+    --secondary-foreground: 0 0% 5%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 64%;
+
+    --accent: 350 50% 25%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 350 70% 65%;
+
+    /* Dark Theme Custom Design Tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(350 70% 65%), hsl(20 80% 70%));
+    --card-gradient: linear-gradient(145deg, hsl(0 0% 7%), hsl(0 0% 10%));
+    --glass-bg: hsla(350 70% 65% / 0.1);
+    --glass-border: hsla(350 70% 65% / 0.2);
+    --shadow-elegant: 0 20px 60px hsla(350 70% 65% / 0.3);
+    --shadow-card: 0 8px 32px hsla(350 70% 65% / 0.15);
+    --shadow-glow: 0 0 40px hsla(350 70% 65% / 0.4);
+    --gradient-animated: linear-gradient(45deg, hsl(350 70% 65%), hsl(20 80% 70%), hsl(350 70% 65%));
+    --mesh-gradient: linear-gradient(135deg, hsl(350 70% 65% / 0.2), hsl(20 80% 70% / 0.2), hsl(350 70% 65% / 0.2));
+
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 95.9%;
+    --sidebar-primary: 350 70% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 95.9%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 350 70% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+
+  /* Enhanced mesh gradient background */
+  .mesh-gradient {
+    background: var(--mesh-gradient);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  /* Geometric patterns for hero */
+  .geometric-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 20%, hsla(350, 70%, 65%, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsla(20, 80%, 70%, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 60%, hsla(350, 70%, 65%, 0.05) 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  /* Hover-only glow effect */
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Enhanced glassmorphism */
+  .glass-effect {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+  }
+}
