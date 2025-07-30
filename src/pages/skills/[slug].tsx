@@ -15,10 +15,10 @@ interface Tutorial {
   tutor: {
     name: string;
     avatar: string;
-    rating: number;
   };
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   category: string;
+  rating?: number;
 }
 
 interface SkillDetail {
@@ -27,7 +27,6 @@ interface SkillDetail {
   totalTutorials: number;
   totalTutors: number;
   category: string;
-  
 }
 
 const SkillDetailPage = () => {
@@ -82,12 +81,11 @@ const SkillDetailPage = () => {
               views: 18500,
               tutor: {
                 name: 'Emily Parker',
-                avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face',
-                rating: 4.9
+                avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face'
               },
               difficulty: 'Beginner',
               category: 'Early Education',
-              
+              rating: 4.9
             },
             {
               id: 'class4-8',
@@ -98,12 +96,11 @@ const SkillDetailPage = () => {
               views: 22400,
               tutor: {
                 name: 'David Wilson',
-                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face',
-                rating: 4.7
+                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face'
               },
               difficulty: 'Intermediate',
               category: 'Middle School',
-              
+              rating: 4.7
             },
             {
               id: 'class9-above',
@@ -114,12 +111,11 @@ const SkillDetailPage = () => {
               views: 31200,
               tutor: {
                 name: 'Sophia Chen',
-                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face',
-                rating: 4.8
+                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face'
               },
               difficulty: 'Advanced',
               category: 'High School & College',
-              
+              rating: 4.8
             }
           ]
         },
@@ -141,12 +137,11 @@ const SkillDetailPage = () => {
               views: 46100,
               tutor: {
                 name: 'James Wilson',
-                avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face',
-                rating: 4.9
+                avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face'
               },
               difficulty: 'Beginner',
               category: 'Instruments',
-              
+              rating: 4.9
             },
             {
               id: 'singing',
@@ -157,12 +152,11 @@ const SkillDetailPage = () => {
               views: 18950,
               tutor: {
                 name: 'Maria Garcia',
-                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face',
-                rating: 4.8
+                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face'
               },
               difficulty: 'Intermediate',
               category: 'Vocal Training',
-              
+              rating: 4.8
             }
           ]
         },
@@ -184,12 +178,11 @@ const SkillDetailPage = () => {
               views: 32000,
               tutor: {
                 name: 'Dr. Michael Stevens',
-                avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=50&h=50&fit=crop&crop=face',
-                rating: 4.9
+                avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=50&h=50&fit=crop&crop=face'
               },
               difficulty: 'Beginner',
               category: 'Career Development',
-              
+              rating: 4.9
             },
             {
               id: 'interview-skills',
@@ -200,12 +193,11 @@ const SkillDetailPage = () => {
               views: 28500,
               tutor: {
                 name: 'Jennifer Adams',
-                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face',
-                rating: 4.8
+                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face'
               },
               difficulty: 'Intermediate',
               category: 'Job Search',
-              
+              rating: 4.8
             },
             {
               id: 'resume-building',
@@ -216,12 +208,11 @@ const SkillDetailPage = () => {
               views: 25700,
               tutor: {
                 name: 'Robert Chen',
-                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face',
-                rating: 4.7
+                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face'
               },
               difficulty: 'Beginner',
               category: 'Job Search',
-              
+              rating: 4.7
             }
           ]
         },
@@ -243,12 +234,11 @@ const SkillDetailPage = () => {
               views: 27000,
               tutor: {
                 name: 'Sarah Johnson',
-                avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face',
-                rating: 4.9
+                avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face'
               },
               difficulty: 'Beginner',
               category: 'Communication',
-              
+              rating: 4.9
             },
             {
               id: 'stress-management',
@@ -259,12 +249,11 @@ const SkillDetailPage = () => {
               views: 31500,
               tutor: {
                 name: 'Dr. James Miller',
-                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face',
-                rating: 4.8
+                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face'
               },
               difficulty: 'Intermediate',
               category: 'Mental Wellness',
-              
+              rating: 4.8
             }
           ]
         },
@@ -286,8 +275,7 @@ const SkillDetailPage = () => {
               views: 28500,
               tutor: {
                 name: 'Alex Rodriguez',
-                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face',
-                rating: 4.9
+                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face'
               },
               difficulty: 'Intermediate',
               category: 'Web Development'
@@ -301,8 +289,7 @@ const SkillDetailPage = () => {
               views: 19200,
               tutor: {
                 name: 'Lisa Wang',
-                avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=50&h=50&fit=crop&crop=face',
-                rating: 4.7
+                avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=50&h=50&fit=crop&crop=face'
               },
               difficulty: 'Intermediate',
               category: 'Web Development'

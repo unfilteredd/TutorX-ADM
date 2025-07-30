@@ -41,6 +41,351 @@ const SubSkillDetailPage = () => {
     // Mock data based on id - replace with actual API call
     const getSubSkillData = (id: string) => {
       const subSkillMap: Record<string, { detail: SubSkillDetail; tutorials: Tutorial[] }> = {
+        'nursery-3': {
+          detail: {
+            title: 'Nursery to 3rd Class',
+            description: 'Foundation learning programs for young students with interactive lessons in mathematics, language, and general knowledge. Our expert tutors provide engaging educational content tailored to early childhood development needs.',
+            totalTutorials: 18,
+            totalTutors: 12,
+            category: 'Early Education',
+            parentSkill: 'academic-tuition',
+            parentSkillTitle: 'Academic Tuition'
+          },
+          tutorials: [
+            {
+              id: 'early-math',
+              title: 'Early Mathematics: Numbers and Counting',
+              description: 'A fun and engaging introduction to numbers and counting for young learners with colorful visuals and interactive examples',
+              thumbnail: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=250&fit=crop',
+              duration: '15:30',
+              views: 18500,
+              tutor: {
+                name: 'Emily Parker',
+                avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Beginner',
+              category: 'Early Education'
+            },
+            {
+              id: 'phonics-reading',
+              title: 'Phonics and Early Reading Skills',
+              description: 'Learn the fundamentals of phonics and early reading with engaging activities designed for young learners',
+              thumbnail: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=250&fit=crop',
+              duration: '18:45',
+              views: 15800,
+              tutor: {
+                name: 'Robert Johnson',
+                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Beginner',
+              category: 'Early Education'
+            },
+            {
+              id: 'science-discovery',
+              title: 'Science Discovery for Young Minds',
+              description: 'Explore basic scientific concepts through fun experiments and activities that spark curiosity and wonder',
+              thumbnail: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=250&fit=crop',
+              duration: '14:20',
+              views: 12600,
+              tutor: {
+                name: 'Lisa Chen',
+                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Beginner',
+              category: 'Early Education'
+            },
+            {
+              id: 'creative-arts',
+              title: 'Creative Arts and Crafts',
+              description: 'Develop fine motor skills and creativity through engaging arts and crafts projects designed for young children',
+              thumbnail: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=250&fit=crop',
+              duration: '16:15',
+              views: 10900,
+              tutor: {
+                name: 'Michael Chen',
+                avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Beginner',
+              category: 'Early Education'
+            }
+          ]
+        },
+        'class4-8': {
+          detail: {
+            title: '4th to 8th Class',
+            description: 'Comprehensive educational programs covering mathematics, science, social studies, and language arts for middle school students. Our experienced tutors provide structured learning that builds strong academic foundations.',
+            totalTutorials: 24,
+            totalTutors: 15,
+            category: 'Middle School',
+            parentSkill: 'academic-tuition',
+            parentSkillTitle: 'Academic Tuition'
+          },
+          tutorials: [
+            {
+              id: 'middle-math',
+              title: 'Middle School Mathematics: Fractions and Decimals',
+              description: 'Master the concepts of fractions and decimals with clear explanations and practical examples for students in classes 4-8',
+              thumbnail: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&h=250&fit=crop',
+              duration: '22:45',
+              views: 22400,
+              tutor: {
+                name: 'David Wilson',
+                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Intermediate',
+              category: 'Middle School'
+            },
+            {
+              id: 'science-experiments',
+              title: 'Hands-on Science Experiments',
+              description: 'Explore scientific concepts through engaging experiments that make learning fun and memorable',
+              thumbnail: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&h=250&fit=crop',
+              duration: '25:30',
+              views: 19800,
+              tutor: {
+                name: 'Sarah Williams',
+                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Intermediate',
+              category: 'Middle School'
+            },
+            {
+              id: 'language-arts',
+              title: 'Language Arts: Reading Comprehension and Writing',
+              description: 'Develop strong reading comprehension and writing skills with strategies for middle school students',
+              thumbnail: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=250&fit=crop',
+              duration: '24:15',
+              views: 17600,
+              tutor: {
+                name: 'Jennifer Lee',
+                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Intermediate',
+              category: 'Middle School'
+            },
+            {
+              id: 'social-studies',
+              title: 'Social Studies: World History and Geography',
+              description: 'Explore world history and geography through engaging lessons that bring the past and present to life',
+              thumbnail: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=250&fit=crop',
+              duration: '26:45',
+              views: 15900,
+              tutor: {
+                name: 'Thomas Anderson',
+                avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Intermediate',
+              category: 'Middle School'
+            }
+          ]
+        },
+        'class9-above': {
+          detail: {
+            title: '9th Class and Above',
+            description: 'Advanced academic programs for high school students preparing for board exams and college entrance tests with specialized coaching. Our expert tutors provide comprehensive preparation for academic excellence and future success.',
+            totalTutorials: 28,
+            totalTutors: 18,
+            category: 'High School & College',
+            parentSkill: 'academic-tuition',
+            parentSkillTitle: 'Academic Tuition'
+          },
+          tutorials: [
+            {
+              id: 'advanced-math',
+              title: 'Advanced Mathematics: Calculus Fundamentals',
+              description: 'A comprehensive introduction to calculus for high school and college students covering limits, derivatives, and integrals',
+              thumbnail: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=250&fit=crop',
+              duration: '35:15',
+              views: 31200,
+              tutor: {
+                name: 'Sophia Chen',
+                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Advanced',
+              category: 'High School & College'
+            },
+            {
+              id: 'physics-mechanics',
+              title: 'Physics: Mechanics and Motion',
+              description: 'Master the fundamental concepts of mechanics and motion with clear explanations and problem-solving strategies',
+              thumbnail: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=250&fit=crop',
+              duration: '32:45',
+              views: 28600,
+              tutor: {
+                name: 'David Chen',
+                avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Advanced',
+              category: 'High School & College'
+            },
+            {
+              id: 'chemistry-organic',
+              title: 'Chemistry: Organic Chemistry Essentials',
+              description: 'Navigate the complex world of organic chemistry with structured lessons on molecular structures and reactions',
+              thumbnail: 'https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=400&h=250&fit=crop',
+              duration: '38:20',
+              views: 25400,
+              tutor: {
+                name: 'Michael Reed',
+                avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Advanced',
+              category: 'High School & College'
+            },
+            {
+              id: 'exam-preparation',
+              title: 'College Entrance Exam Preparation',
+              description: 'Comprehensive strategies and practice for succeeding on standardized tests and college entrance exams',
+              thumbnail: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=250&fit=crop',
+              duration: '42:30',
+              views: 35800,
+              tutor: {
+                name: 'Jennifer Adams',
+                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Advanced',
+              category: 'High School & College'
+            }
+          ]
+        },
+        'instrument': {
+          detail: {
+            title: 'Instrument',
+            description: 'Learn to play various musical instruments with comprehensive lessons covering technique, theory, and performance for all skill levels. Our professional musicians provide expert guidance to help you master your chosen instrument.',
+            totalTutorials: 32,
+            totalTutors: 15,
+            category: 'Instruments',
+            parentSkill: 'music-production',
+            parentSkillTitle: 'Music & Instruments'
+          },
+          tutorials: [
+            {
+              id: 'guitar-basics',
+              title: 'Guitar Basics for Beginners',
+              description: 'Learn the fundamentals of guitar playing with step-by-step lessons on chords, strumming, and basic techniques',
+              thumbnail: 'https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=400&h=250&fit=crop',
+              duration: '28:15',
+              views: 46100,
+              tutor: {
+                name: 'James Wilson',
+                avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Beginner',
+              category: 'Instruments'
+            },
+            {
+              id: 'piano-fundamentals',
+              title: 'Piano Fundamentals',
+              description: 'Master the basics of piano playing with lessons on technique, reading music, and playing simple pieces',
+              thumbnail: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=400&h=250&fit=crop',
+              duration: '32:45',
+              views: 38200,
+              tutor: {
+                name: 'Sarah Johnson',
+                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Beginner',
+              category: 'Instruments'
+            },
+            {
+              id: 'violin-technique',
+              title: 'Violin Technique and Practice',
+              description: 'Develop proper violin technique with lessons on posture, bowing, fingering, and effective practice methods',
+              thumbnail: 'https://images.unsplash.com/photo-1465821185615-20b3c2fbf41b?w=400&h=250&fit=crop',
+              duration: '35:20',
+              views: 28600,
+              tutor: {
+                name: 'Michael Chen',
+                avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Intermediate',
+              category: 'Instruments'
+            },
+            {
+              id: 'drums-rhythms',
+              title: 'Drum Basics and Essential Rhythms',
+              description: 'Learn fundamental drumming techniques, rhythms, and patterns for beginners',
+              thumbnail: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=400&h=250&fit=crop',
+              duration: '30:15',
+              views: 32400,
+              tutor: {
+                name: 'David Wilson',
+                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Beginner',
+              category: 'Instruments'
+            }
+          ]
+        },
+        'singing': {
+          detail: {
+            title: 'Singing',
+            description: 'Develop your vocal skills with professional voice training covering technique, range, and performance skills. Our experienced vocal coaches will help you improve your singing abilities and build confidence in your voice.',
+            totalTutorials: 24,
+            totalTutors: 12,
+            category: 'Vocal Training',
+            parentSkill: 'music-production',
+            parentSkillTitle: 'Music & Instruments'
+          },
+          tutorials: [
+            {
+              id: 'vocal-basics',
+              title: 'Vocal Basics: Breathing and Technique',
+              description: 'Learn proper breathing techniques and vocal fundamentals to improve your singing voice',
+              thumbnail: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=400&h=250&fit=crop',
+              duration: '24:30',
+              views: 18950,
+              tutor: {
+                name: 'Maria Garcia',
+                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Beginner',
+              category: 'Vocal Training'
+            },
+            {
+              id: 'vocal-range',
+              title: 'Expanding Your Vocal Range',
+              description: 'Exercises and techniques to safely extend your vocal range and improve flexibility',
+              thumbnail: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=250&fit=crop',
+              duration: '28:15',
+              views: 15800,
+              tutor: {
+                name: 'James Wilson',
+                avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Intermediate',
+              category: 'Vocal Training'
+            },
+            {
+              id: 'performance-skills',
+              title: 'Singing Performance Skills',
+              description: 'Develop stage presence, emotional expression, and performance techniques for singers',
+              thumbnail: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=250&fit=crop',
+              duration: '26:45',
+              views: 14200,
+              tutor: {
+                name: 'Sarah Johnson',
+                avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Intermediate',
+              category: 'Vocal Training'
+            },
+            {
+              id: 'vocal-styles',
+              title: 'Exploring Different Vocal Styles',
+              description: 'Learn techniques for singing in various genres including pop, rock, jazz, and classical',
+              thumbnail: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=250&fit=crop',
+              duration: '30:20',
+              views: 16500,
+              tutor: {
+                name: 'David Chen',
+                avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=50&h=50&fit=crop&crop=face'
+              },
+              difficulty: 'Advanced',
+              category: 'Vocal Training'
+            }
+          ]
+        },
         'mindful-conversations': {
           detail: {
             title: 'Mindful Conversations',
@@ -110,7 +455,7 @@ const SubSkillDetailPage = () => {
             }
           ]
         },
-        'stress-management-techniques': {
+        'stress-management': {
           detail: {
             title: 'Stress Management Techniques',
             description: 'Discover effective strategies to manage stress and anxiety in your daily life. Our expert instructors will guide you through practical techniques for relaxation, mindfulness, and emotional regulation that you can apply immediately to improve your wellbeing.',
@@ -248,7 +593,7 @@ const SubSkillDetailPage = () => {
             }
           ]
         },
-        'interview-mastery': {
+        'interview-skills': {
           detail: {
             title: 'Interview Mastery',
             description: 'Comprehensive preparation for job interviews across all industries and levels. Our expert coaches provide strategies for answering common and challenging questions, mastering body language, handling stress, and making a lasting positive impression on potential employers.',
@@ -317,7 +662,7 @@ const SubSkillDetailPage = () => {
             }
           ]
         },
-        'resume-portfolio': {
+        'resume-building': {
           detail: {
             title: 'Resume & Portfolio Building',
             description: 'Learn how to create compelling resumes, CVs, and professional portfolios that showcase your skills and experience effectively. Our expert career coaches provide guidance on crafting documents that stand out to employers and highlight your unique value proposition.',
